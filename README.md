@@ -20,7 +20,7 @@ You can simply install React using rubygems:
 
     sudo gem install react
 
-## Examples
+## Usage
 
 Firs you have to prepare file with available commands. It can look like this: 
 
@@ -36,9 +36,9 @@ And now you can start a consumer.
 
     react my_commands.yml
 
-## Commands
+## Pushing commands
 
-While your consumer is working, you can push any of specified command to it's 
+While your consumer is working, you can push any of specified command to  
 queue (default queue name is `queue`), eg:
 
     redis-cli lpush queue restart_httpd

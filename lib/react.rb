@@ -7,15 +7,15 @@ require 'thread'
 #
 # == Inspiration
 #
-# It's inspired by Simon Willson's example of "Queue-activated shell scripts"
-# in his redis-tutorial:
+# It's inspired by Simon Willison's example of "Queue-activated shell scripts"
+# in his redis tutorial:
 #
 #   while [ 1 ] do
 #     redis-cli blpop restart-httpd 0
 #     apache2ctl graceful
 #   done
 #
-# == Examples
+# == Usage
 # 
 # Firs you have to prepare file with available commands. It can look like this: 
 #
@@ -31,13 +31,16 @@ require 'thread'
 #
 #   react my_commands.yml
 #
-# == Commands
+# == Pushing commands
 #
-# While your consumer is working, you can push any command to it's queue
-# (default queue name is `queue`), eg:
+# While your consumer is working, you can push any of specified command to  
+# queue (default queue name is `queue`), eg:
 #
 #   redis-cli lpush queue restart_httpd
 #   redis-cli lpush queue reboot
+#
+# After that consumer will pick up enqueued command names from and execute 
+# related commands. 
 #
 # == Configuration
 #  
