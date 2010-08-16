@@ -1,9 +1,9 @@
 require 'redis'
 require 'thread'
 
-# React is a simple application that allows for remote execution of commands.
-# It uses Redis as a queue - it is blocking specified list and waits for new 
-# entries - when an entry appears, then it is executing recognized command.
+# React is a simple application that allows for remote execution of commands. 
+# It uses Redis as a queue - it's blocking specified list and waits for new 
+# entries - when an entry appears, then it will executes recognized command.
 #
 # == Inspiration
 #
