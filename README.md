@@ -44,15 +44,15 @@ There are few more runtime options, which can be useful for you.
 
 * you can specify queue wihch will be consumed:
 
-    react my_commands.yml --queue "my:queue:name"
+      react my_commands.yml --queue "my:queue:name"
 
 * you can specify the database to which consumer should connect:
 
-    react my_commands.yml --host "yourhost.com" --port 6379 --db 2
+      react my_commands.yml --host "yourhost.com" --port 6379 --db 2
 
 * and finally, you can demonize the consumer:
 
-    react my_commands.yml --daemonize
+      react my_commands.yml --daemonize
 
 ## Links
 
