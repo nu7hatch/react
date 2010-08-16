@@ -38,11 +38,14 @@ queue (default queue name is `queue`), eg:
     redis-cli lpush queue restart_httpd
     redis-cli lpush queue reboot
 
+After that consumer will pick up enqueued command names from and execute 
+related commands. 
+
 ## Configuration
   
 There are few more runtime options, which can be useful for you. 
 
-* you can specify queue wihch will be consumed:
+* you can specify queue which will be consumed:
 
       react my_commands.yml --queue "my:queue:name"
 
