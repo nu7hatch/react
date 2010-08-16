@@ -40,17 +40,20 @@ require 'thread'
 #   redis-cli lpush queue reboot
 #
 # == Configuration
-#   
+#  
 # There are few more runtime options, which can be useful for you. 
-#   
-#   # it will be consuming commands from specified queue
-#   react my_commands.yml --queue "my:queue:name"
 #
-#   # you can specify the database to which React should connect
-#   react my_commands.yml --host "yourhost.com" --port 6379 --db 2
+# * you can specify queue which will be consumed:
 #
-#   # and finally, you can demonize your application
-#   react  my_commands.yml --daemonize
+#     react my_commands.yml --queue "my:queue:name"
+#
+# * you can specify the database to which consumer should connect:
+#
+#     react my_commands.yml --host "yourhost.com" --port 6379 --db 2
+#
+# * and finally, you can demonize the consumer:
+#
+#     react my_commands.yml --daemon
 module React
 
   # It starts the consumer loop. 

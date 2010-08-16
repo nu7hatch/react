@@ -55,7 +55,7 @@ There are few more runtime options, which can be useful for you.
 
 * and finally, you can demonize the consumer:
 
-      react my_commands.yml --daemonize
+      react my_commands.yml --daemon
       
 ## Note on Patches/Pull Requests
  
