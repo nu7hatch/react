@@ -14,6 +14,12 @@ in his [redis tutorial](http://simonwillison.net/static/2010/redis-tutorial/):
       apache2ctl graceful
     done
 
+## Installation
+
+You can simply install React using rubygems:
+
+    sudo gem install react
+
 ## Examples
 
 Firs you have to prepare file with available commands. It can look like this: 
