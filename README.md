@@ -26,7 +26,7 @@ Firs you have to prepare file with available commands. It can look like this:
     reboot: |
       reboot
    
-And now you can start consumer. 
+And now you can start a consumer. 
 
     react my_commands.yml
 
