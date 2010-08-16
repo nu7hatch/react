@@ -1,8 +1,7 @@
 # React
 
-React is a simple application that allows for remote execution of commands. 
-It uses Redis as a queue - it blocks specified list and waits for new 
-entries - when an entry appears, then it executes recognized command.
+React is a simple application that allows for remote execution of commands, 
+and it uses Redis as a queue.
 
 ## Inspiration
 
