@@ -7,7 +7,7 @@ entries - when an entry appears, then it is executing recognized command.
 ## Inspiration
 
 It's inspired by Simon Willson's example of "Queue-activated shell scripts"
-in his redis-tutorial:
+in his [redis-tutorial](http://simonwillison.net/static/2010/redis-tutorial/):
 
     while [ 1 ] do
       redis-cli blpop restart-httpd 0
