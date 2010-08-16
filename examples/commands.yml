@@ -1,0 +1,8 @@
+restart_httpd: |
+  apache2ctl graceful
+  
+restart_mysql: |
+  /etc/init.d/mysql restart
+
+reboot: |
+  reboot
