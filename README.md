@@ -56,12 +56,7 @@ There are few more runtime options, which can be useful for you.
 * and finally, you can demonize the consumer:
 
       react my_commands.yml --daemonize
-
-## Links
-
-* [My website](http://nu7hatch.com/)
-* [Simon Willison's Redis tutorial](http://simonwillison.net/static/2010/redis-tutorial/)
-
+      
 ## Note on Patches/Pull Requests
  
 * Fork the project.
