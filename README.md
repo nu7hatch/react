@@ -6,7 +6,7 @@ entries - when an entry appears, then it is executing recognized command.
 
 ## Inspiration
 
-It's inspired by Simon Willson's example of "Queue-activated shell scripts"
+It's inspired by Simon Willison's example of "Queue-activated shell scripts"
 in his [redis-tutorial](http://simonwillison.net/static/2010/redis-tutorial/):
 
     while [ 1 ] do
@@ -60,7 +60,7 @@ There are few more runtime options, which can be useful for you.
 ## Links
 
 * [My website](http://nu7hatch.com/)
-* [Simon Wilson's Redis tutorial](http://simonwillison.net/static/2010/redis-tutorial/)
+* [Simon Willison's Redis tutorial](http://simonwillison.net/static/2010/redis-tutorial/)
 
 ## Note on Patches/Pull Requests
  
