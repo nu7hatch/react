@@ -28,6 +28,7 @@ opts = OptionParser.new do |opts|
   opts.on('-h', '--host [HOST]', 'Select redis host') {|val| val and options[:redis][:host] = val }
   opts.on('-p', '--port [PORT]', Integer, 'Select redis port') {|val| val and options[:redis][:port] = val }
   opts.on('-D', '--db [DATABASE]', 'Select redis database number') {|val| val and options[:redis][:db] = val }
+  opts.on('-P', '--password [PASSWORD]', 'Select redis database password') {|val| val and options[:redis][:password] = val }  
   opts.on('-d', '--daemon', 'Run in background') { options[:daemon] = true }
 end.parse(ARGV)
 

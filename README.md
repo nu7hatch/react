@@ -56,7 +56,7 @@ There are few more runtime options, which can be useful for you.
 
 * you can specify the database to which consumer should connect:
 
-      react my_commands.yml --host "yourhost.com" --port 6379 --db 2
+      react my_commands.yml --host "yourhost.com" --port 6379 --db 2 --password pass
 
 * and finally, you can demonize the consumer:
 
