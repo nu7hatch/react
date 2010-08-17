@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{react}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kriss 'nu7hatch' Kowalik"]
-  s.date = %q{2010-08-16}
+  s.date = %q{2010-08-17}
   s.default_executable = %q{react}
-  s.description = %q{A simple application that allows remote execution of commands.}
+  s.description = %q{A simple application that allows for remote execution of commands.}
   s.email = %q{kriss.kowalik@gmail.com}
   s.executables = ["react"]
   s.extra_rdoc_files = [
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "bin/react",
+     "examples/commands.yml",
      "lib/react.rb",
      "react.gemspec",
      "test/react_test.rb",
@@ -34,7 +35,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Redis based remote commands executor.}
+  s.summary = %q{Redis based remote command executor.}
   s.test_files = [
     "test/teststrap.rb",
      "test/react_test.rb"

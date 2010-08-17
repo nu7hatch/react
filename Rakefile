@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "react"
-    gem.version = "0.0.1"
+    gem.version = "0.0.2"
     gem.default_executable = 'react'
     gem.executables = ['react']
     gem.summary = %Q{Redis based remote command executor.}
