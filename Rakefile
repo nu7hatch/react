@@ -5,7 +5,6 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "react"
-    gem.version = "0.0.2"
     gem.default_executable = 'react'
     gem.executables = ['react']
     gem.summary = %Q{Redis based remote command executor.}
@@ -14,7 +13,8 @@ begin
     gem.homepage = "http://github.com/nu7hatch/react"
     gem.authors = ["Kriss 'nu7hatch' Kowalik"]
     gem.add_development_dependency "riot", ">= 0.11.3"
-    gem.add_dependency "daemons", ">= 0"
+    gem.add_dependency "daemons", ">= 1.0"
+    gem.add_dependency "redis", ">= 2.0"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

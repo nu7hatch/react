@@ -1,5 +1,15 @@
+# Load all dependencies without rubygems first. 
+
 require 'redis'
-require 'thread'
+require 'optparse'
+require 'daemons'
+
+begin
+  require 'fastthread' 
+rescue LoadError
+  $stderr.puts("The fastthread gem not found. Using standard ruby threads.")
+  require 'thread'
+end
 
 # React is a simple application that allows for remote execution of commands, 
 # and it uses Redis as a queue.
@@ -58,6 +68,50 @@ require 'thread'
 #     react my_commands.yml --daemon
 module React
 
+  # Current version number. 
+  VERSION = File.open(File.dirname(__FILE__)+"/../../VERSION").read.strip
+
+  # Command Line Interface for React. 
+  class CLI
+    def self.main(args)
+      if args.empty?
+        args << '--help'
+      else 
+        if File.exists?(args[0])
+          options[:commands] = YAML.load_file(args[0])
+        else
+          puts "ERROR: File not found: `#{args[0]}`"
+          exit
+        end
+      end
+
+      options = { 
+        :redis => {:host => '127.0.0.1', :port => 6379, :db => 0}, 
+        :commands => {}, 
+        :queue => 'queue' 
+      }
+
+      OptionParser.new do |opts|
+        opts.banner = "Usage: react commands.yml [options]"
+        opts.on('-q', '--queue [QUEUE]', 'Specify queue which will be consumed') {|val| val and options[:queue] = val }
+        opts.on('-h', '--host [HOST]', 'Select redis host') {|val| val and options[:redis][:host] = val }
+        opts.on('-p', '--port [PORT]', Integer, 'Select redis port') {|val| val and options[:redis][:port] = val }
+        opts.on('-D', '--db [DATABASE]', 'Select redis database number') {|val| val and options[:redis][:db] = val }
+        opts.on('-P', '--password [PASSWORD]', 'Select redis database password') {|val| val and options[:redis][:password] = val }  
+        opts.on('-d', '--daemon', 'Run in background') { options[:daemon] = true }
+        opts.on('--version', { show_version })
+      end.parse(args)
+      
+      React.start(options).join
+    end
+    
+    # Display current version and exit program. 
+    def show_version
+      puts "React v#{React::VERSION}"
+      exit 0
+    end
+  end
+  
   # It starts the consumer loop. 
   def self.start(conf)
     @config = conf
@@ -102,5 +156,4 @@ module React
   def self.redis
     @redis ||= Redis.new(@config[:redis])
   end
-  
 end # React
