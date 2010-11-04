@@ -10,10 +10,14 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+begin
+  Rcov::RcovTask.new do |test|
+    test.libs << 'test'
+    test.pattern = 'test/**/test_*.rb'
+    test.verbose = true
+  end
+rescue
+  puts "Rcov is not available!"
 end
 
 Rake::RDocTask.new do |rdoc|
