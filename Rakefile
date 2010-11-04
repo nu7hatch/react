@@ -1,54 +1,40 @@
-require 'rubygems'
-require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "react"
-    gem.default_executable = 'react'
-    gem.executables = ['react']
-    gem.summary = %Q{Redis based remote command executor.}
-    gem.description = %Q{A simple application that allows for remote execution of commands.}
-    gem.email = "kriss.kowalik@gmail.com"
-    gem.homepage = "http://github.com/nu7hatch/react"
-    gem.authors = ["Kriss 'nu7hatch' Kowalik"]
-    gem.add_development_dependency "riot", ">= 0.11.3"
-    gem.add_dependency "daemons", ">= 1.0"
-    gem.add_dependency "redis", ">= 2.0"
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
-
+# -*- ruby -*-
+$:.unshift(File.expand_path('../lib', __FILE__))
+require 'react/version'
 require 'rake/testtask'
+require 'rake/rdoctask'
+
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
+  test.pattern = 'test/**/test_*.rb'
   test.verbose = true
 end
 
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
+Rcov::RcovTask.new do |test|
+  test.libs << 'test'
+  test.pattern = 'test/**/test_*.rb'
+  test.verbose = true
 end
 
-task :test => :check_dependencies
-
-task :default => :test
-
-require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "React"
+  rdoc.title = "React #{React.version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+task :default => :spec
+
+desc "Build current version as a rubygem"
+task :build do
+  `gem build react.gemspec`
+  `mv react-*.gem pkg/`
+end
+
+desc "Relase current version to rubygems.org"
+task :release => :build do
+  `git tag -am "Version bump to #{React.version}" v#{React.version}`
+  `git push origin master`
+  `git push origin master --tags`
+  `gem push pkg/react-#{React.version}.gem`
 end

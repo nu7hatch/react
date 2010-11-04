@@ -24,12 +24,9 @@ You can simply install React using rubygems:
 Firs you have to prepare file with available commands. It can look like this: 
 
     # my_commands.yml
-    restart_httpd: |
-      apache2ctl graceful
-    restart_mysql: |
-      /etc/init.d/mysql restart
-    reboot: |
-      reboot
+    restart_httpd: apache2ctl graceful
+    restart_mysql: /etc/init.d/mysql restart
+    reboot: reboot
    
 And now you can start a consumer. 
 
@@ -74,4 +71,11 @@ There are few more runtime options, which can be useful for you.
 
 ## Copyright
 
-Copyright (c) 2010 Kriss Kowalik. See LICENSE for details.    
+== Copyright
+
+Copyleft 2010 Chris Kowalik. WTFPL Baby!
+
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+0. You just DO WHAT THE FUCK YOU WANT TO. 

@@ -7,4 +7,6 @@ rescue LoadError
   require 'react'
 end
 
-React::CLI.main(ARGV)
+require 'react/cli'
+
+React::CLI.dispatch(ARGV)
