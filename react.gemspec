@@ -3,7 +3,7 @@ $:.unshift(File.expand_path('../lib', __FILE__))
 require 'react/version'
 
 Gem::Specification.new do |s|
-  s.name               = 'authtools'
+  s.name               = 'react'
   s.version            = React.version
   s.homepage           = 'http://github.com/nu7hatch/react'
   s.email              = ['chris@nu7hat.ch']
