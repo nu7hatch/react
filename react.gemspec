@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files              = `git ls-files`.split("\n")
   s.test_files         = `git ls-files -- {test}/*`.split("\n")
   s.require_paths      = %w[lib]
-  s.extra_rdoc_files   = %w[README.rdoc]
+  s.extra_rdoc_files   = %w[README.md]
   s.executables        = %w[react]
   s.default_executable = 'react'
   
